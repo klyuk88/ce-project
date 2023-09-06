@@ -1,0 +1,18 @@
+body {
+  background: var(--bg-color);
+  color: var(--color-black);
+  font-family: var(--font);
+}
+
+.ce-container {
+  @apply max-w-[900px] mx-auto px-4 box-content;
+}
+
+.sec-title {
+  @apply text-[45px] uppercase font-medium;
+}
+
+.sec-padding {
+  @apply pt-[130px];
+}
+
