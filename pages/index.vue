@@ -1,6 +1,8 @@
 <script setup>
 import { TheButton } from "~/components/shared/ui/Button/";
 import { ServiceItem } from "~/components/shared/ui/ServiceItem/";
+import { ModalOverlay } from "~/components/shared/ui/Modal";
+const isShowModal = ref(false);
 </script>
 <template>
   <main>
@@ -23,7 +25,10 @@ import { ServiceItem } from "~/components/shared/ui/ServiceItem/";
               затраты на разработку.
             </p>
           </div>
-          <TheButton :btn-class="'w-[330px] ml-auto'">
+          <TheButton
+            :btn-class="'w-[330px] ml-auto'"
+            @click="isShowModal = true"
+          >
             <template #title>Консультация</template>
           </TheButton>
         </div>
@@ -35,9 +40,16 @@ import { ServiceItem } from "~/components/shared/ui/ServiceItem/";
         <div class="grid grid-cols-2">
           <div>
             <div
-              class="rounded-br-[150px] w-[370px] h-[370px] bg-neutral-300 relative"
+              class="rounded-br-[150px] w-[370px] h-[370px] bg-neutral-300 relative overflow-hidden"
             >
-              <div class="bg-accent absolute top-0 left-0 w-full h-1.5"></div>
+              <div
+                class="bg-accent absolute top-0 left-0 w-full h-1 z-20"
+              ></div>
+              <img
+                src="@/assets/img/team.jpg"
+                alt="team"
+                class="absolute w-full h-full left-0 top-0 object-cover z-10"
+              />
             </div>
           </div>
           <div>
@@ -114,10 +126,55 @@ import { ServiceItem } from "~/components/shared/ui/ServiceItem/";
       </div>
     </section>
 
-    <section id="projects" class="sec-padding">
+    <section id="projects" class="sec-padding pb-[130px]">
       <div class="ce-container">
-        <h2 class="sec-title">Проекты</h2>
+        <h2 class="sec-title leading-none">Проекты</h2>
+        <p class="mt-4">
+          Мы работаем с клиентами из разных отраслей и регионов, и всегда готовы
+          предложить индивидуальный подход к каждому проекту. Занимаемся
+          разработкой: от простых корпоративных сайтов до сложных
+          интернет-магазинов и порталов, разработкой и внедренией CRM-систем,
+          интеграцией веб-проектов с другими системами, такими как ERP,
+          платежные системы и т. д.
+        </p>
+
+        <div class="grid grid-cols-2 gap-14 mt-10">
+          <div>
+            <div
+              class="rounded-[25px] bg-neutral-200 w-full aspect-square cursor-pointer"
+            ></div>
+          </div>
+          <div>
+            <div
+              class="rounded-[25px] bg-neutral-200 w-full aspect-square cursor-pointer"
+            ></div>
+          </div>
+          <div>
+            <div
+              class="rounded-[25px] bg-neutral-200 w-full aspect-square cursor-pointer"
+            ></div>
+          </div>
+          <div>
+            <div
+              class="rounded-[25px] bg-neutral-200 w-full aspect-square cursor-pointer"
+            ></div>
+          </div>
+        </div>
+        <button
+          class="text-accent uppercase text-2xl mx-auto mt-10 block transition-colors hover:text-black"
+        >
+          Показать больше
+        </button>
       </div>
     </section>
+    <Teleport to="body">
+      <Transition name="fade">
+        <ModalOverlay v-if="isShowModal" @click="isShowModal = false">
+          <template #content>
+            <div class="bg-neutral-100"></div>
+          </template>
+        </ModalOverlay>
+      </Transition>
+    </Teleport>
   </main>
 </template>

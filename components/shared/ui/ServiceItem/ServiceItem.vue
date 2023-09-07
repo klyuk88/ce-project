@@ -15,9 +15,9 @@ const props = defineProps<{
         <h3 class="uppercase text-[30px] w-[80%]">{{ props.title ?? "F" }}</h3>
         <div>
           <h4 class="uppercase text-xl">
-            Стоимость {{ props.price ?? "0" }} руб./час
+            Стоимость {{ props.price ?? "0" }} руб/час
           </h4>
-          <TheButton :btn-class="$style.btn" :btn-style="'accent'">
+          <TheButton :btn-class="$style.btn">
             <template #title> Консультация </template>
           </TheButton>
         </div>
@@ -37,6 +37,6 @@ const props = defineProps<{
 
 <style module lang="scss">
 .btn {
-  @apply py-3 px-0 w-[260px] mt-6 text-[18px];
+  @apply py-3 px-0 w-[260px] mt-6 text-[18px] bg-transparent text-white;
 }
 </style>
