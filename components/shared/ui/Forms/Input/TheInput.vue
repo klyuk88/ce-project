@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  placeHolder?: string;
+  placeholder?: string;
   inputType?: "text" | "email" | "tel";
 }
 
@@ -10,7 +10,7 @@ const props = defineProps<Props>();
   <div>
     <input
       :type="props.inputType ?? 'text'"
-      :placeholder="props.placeHolder ?? ''"
+      :placeholder="props.placeholder ?? ''"
       :class="$style.input"
     />
   </div>

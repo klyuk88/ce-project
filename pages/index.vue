@@ -2,6 +2,8 @@
 import { TheButton } from "~/components/shared/ui/Button/";
 import { ServiceItem } from "~/components/shared/ui/ServiceItem/";
 import { ModalOverlay } from "~/components/shared/ui/Modal";
+import { TheInput } from "~/components/shared/ui/Forms/Input";
+
 const isShowModal = ref(false);
 </script>
 <template>
@@ -40,7 +42,7 @@ const isShowModal = ref(false);
         <div class="grid grid-cols-2">
           <div>
             <div
-              class="rounded-br-[150px] w-[370px] h-[370px] bg-neutral-300 relative overflow-hidden"
+              class="rounded-br-[150px] w-[370px] h-[370px] bg-neutral-300 relative overflow-hidden z-10"
             >
               <div
                 class="bg-accent absolute top-0 left-0 w-full h-1 z-20"
@@ -169,9 +171,22 @@ const isShowModal = ref(false);
     </section>
     <Teleport to="body">
       <Transition name="fade">
-        <ModalOverlay v-if="isShowModal" @click="isShowModal = false">
+        <ModalOverlay v-if="true" @click="isShowModal = false">
           <template #content>
-            <div class="bg-neutral-100"></div>
+            <div class="bg-neutral-100 relative w-[520px] p-12">
+              <img
+                src="@/assets/svg/close-icon.svg"
+                alt="close_icon"
+                class="absolute right-4 top-4 w-4 cursor-pointer"
+                @click="isShowModal = false"
+              />
+              <h2 class="uppercase text-2xl font-medium">Обсудить проект</h2>
+              <p class="mt-3">
+                Если у вас есть какие-либо вопросы или вам нужна помощь в выборе
+                наших услуг, пожалуйста, заполните форму обратной связи.
+              </p>
+              <TheInput placeholder="Ваше имя" />
+            </div>
           </template>
         </ModalOverlay>
       </Transition>
