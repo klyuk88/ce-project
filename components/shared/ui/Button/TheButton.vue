@@ -20,6 +20,6 @@ const props = defineProps<Props>();
 }
 
 .btn.accent {
-  @apply bg-accent text-white hover:bg-transparent;
+  @apply bg-accent text-white hover:bg-transparent hover:text-accent;
 }
 </style>

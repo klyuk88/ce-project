@@ -171,7 +171,7 @@ const isShowModal = ref(false);
     </section>
     <Teleport to="body">
       <Transition name="fade">
-        <ModalOverlay v-if="true" @click="isShowModal = false">
+        <ModalOverlay v-if="isShowModal" @click="isShowModal = false">
           <template #content>
             <div class="bg-neutral-100 relative w-[520px] p-12">
               <img
@@ -185,7 +185,13 @@ const isShowModal = ref(false);
                 Если у вас есть какие-либо вопросы или вам нужна помощь в выборе
                 наших услуг, пожалуйста, заполните форму обратной связи.
               </p>
-              <TheInput placeholder="Ваше имя" />
+              <div class="mt-6 flex flex-col gap-4">
+                <TheInput placeholder="Ваше имя" />
+                <TheInput placeholder="Ваше телефон" :input-type="'tel'" />
+                <TheButton :btn-style="'accent'" :btn-class="$style.modal_Btn">
+                  <template #title>Отправить</template>
+                </TheButton>
+              </div>
             </div>
           </template>
         </ModalOverlay>
@@ -193,3 +199,8 @@ const isShowModal = ref(false);
     </Teleport>
   </main>
 </template>
+<style module lang="scss">
+.modal_Btn {
+  @apply py-0 h-14 text-lg;
+}
+</style>

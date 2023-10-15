@@ -18,6 +18,8 @@ const props = defineProps<Props>();
 
 <style module lang="scss">
 .input {
-  @apply bg-white appearance-none border-2 border-accent;
+  @apply bg-white border-2 border-accent h-[58px]
+    w-full px-6 py-4;
+  @apply focus:shadow-none active:shadow-none focus:rounded-none focus:border-accent focus-visible:rounded-none focus-visible:shadow-none;
 }
 </style>
